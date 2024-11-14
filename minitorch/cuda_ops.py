@@ -390,14 +390,14 @@ def _mm_practice(out: Storage, a: Storage, b: Storage, size: int) -> None:
         size (int): size of the square
 
     """
-    # Shared memory arrays (maximum size 32x32)
     a_shared = cuda.shared.array((32, 32), numba.float64)
     b_shared = cuda.shared.array((32, 32), numba.float64)
 
-    tx = cuda.threadIdx.x  # Row index
-    ty = cuda.threadIdx.y  # Column index
+    # row and column indexes
+    tx = cuda.threadIdx.x
+    ty = cuda.threadIdx.y
 
-    # Load elements into shared memory
+    # All data must be first moved to shared memory
     if tx < size and ty < size:
         a_idx = tx * size + ty
         b_idx = tx * size + ty
@@ -407,16 +407,15 @@ def _mm_practice(out: Storage, a: Storage, b: Storage, size: int) -> None:
         a_shared[tx, ty] = 0.0
         b_shared[tx, ty] = 0.0
 
-    # Synchronize threads after loading data
     cuda.syncthreads()
 
-    # Perform matrix multiplication
+    # matmul
     if tx < size and ty < size:
         sum = 0.0
         for k in range(size):
             sum += a_shared[tx, k] * b_shared[k, ty]
 
-        # Write the result to the output tensor
+        # global write
         out_idx = tx * size + ty
         out[out_idx] = sum
 
