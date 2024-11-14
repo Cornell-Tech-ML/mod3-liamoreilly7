@@ -295,13 +295,14 @@ def tensor_reduce(
         # TODO: Implement for Task 3.1.
         for i in prange(len(out)):
             out_index = np.empty(MAX_DIMS, np.int32)
-            size = a_shape[reduce_dim]
             to_index(i, out_shape, out_index)
+
             out_pos = index_to_position(out_index, out_strides)
             a_pos = index_to_position(out_index, a_strides)
+            
             a = out[out_pos]
             stride = a_strides[reduce_dim]
-            for s in range(size):
+            for s in range(a_shape[reduce_dim]):
                 a = fn(a, a_storage[a_pos])
                 a_pos += stride
             out[out_pos] = a

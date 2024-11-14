@@ -343,6 +343,7 @@ None
 ```
 ## 3.5 Results
 #### Split
+##### GPU time: 2mins -> 0.25s/epoch
 ```
 !cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND gpu --HIDDEN 100 --DATASET split --RATE 0.05
 ```
@@ -396,5 +397,60 @@ Epoch  460  loss  0.12712013148487789 correct 50
 Epoch  470  loss  0.21451479617237068 correct 50
 Epoch  480  loss  0.1986953773430774 correct 50
 Epoch  490  loss  0.09918765343962974 correct 50
-
-
+```
+##### CPU time 1 min -> 0.12s/epoch
+```
+!cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND cpu --HIDDEN 100 --DATASET split --RATE 0.05
+```
+```
+Epoch  0  loss  9.765257889515988 correct 28
+Epoch  10  loss  5.51455061406202 correct 38
+Epoch  20  loss  5.402512940547736 correct 44
+Epoch  30  loss  4.622359866444943 correct 40
+Epoch  40  loss  4.39448439670828 correct 42
+Epoch  50  loss  4.746484895234552 correct 48
+Epoch  60  loss  1.971513169480819 correct 42
+Epoch  70  loss  3.1056905320220936 correct 44
+Epoch  80  loss  3.2927340366014928 correct 44
+Epoch  90  loss  2.472572278336464 correct 48
+Epoch  100  loss  1.6473912308378484 correct 46
+Epoch  110  loss  1.6811313856059495 correct 48
+Epoch  120  loss  0.7152641724554946 correct 49
+Epoch  130  loss  1.8418782992387701 correct 46
+Epoch  140  loss  0.9934325166747052 correct 48
+Epoch  150  loss  1.5475998313221762 correct 47
+Epoch  160  loss  1.7893396930670895 correct 49
+Epoch  170  loss  0.6736086992145116 correct 49
+Epoch  180  loss  1.5156016028599726 correct 49
+Epoch  190  loss  2.297793106534926 correct 50
+Epoch  200  loss  1.9268134734910185 correct 49
+Epoch  210  loss  2.1678206905984223 correct 49
+Epoch  220  loss  0.5988154872249927 correct 49
+Epoch  230  loss  1.3214423357066947 correct 49
+Epoch  240  loss  0.8699151523289403 correct 49
+Epoch  250  loss  0.7961756286558129 correct 50
+Epoch  260  loss  0.6245305917465022 correct 47
+Epoch  270  loss  0.8456962448028718 correct 50
+Epoch  280  loss  0.5522662298392422 correct 50
+Epoch  290  loss  0.8701691259650997 correct 48
+Epoch  300  loss  1.7269932389538316 correct 46
+Epoch  310  loss  0.22351853899075513 correct 49
+Epoch  320  loss  0.28550327102918194 correct 48
+Epoch  330  loss  0.6203880756405353 correct 48
+Epoch  340  loss  0.07174947671078402 correct 49
+Epoch  350  loss  3.8093319070729206 correct 50
+Epoch  360  loss  0.989918939625666 correct 50
+Epoch  370  loss  0.9141960560880799 correct 49
+Epoch  380  loss  0.2751608966358913 correct 49
+Epoch  390  loss  0.4322221678404138 correct 50
+Epoch  400  loss  0.8369008074479533 correct 50
+Epoch  410  loss  0.10647732923435761 correct 50
+Epoch  420  loss  0.36486746863535696 correct 50
+Epoch  430  loss  0.0911490231278374 correct 47
+Epoch  440  loss  0.9141115676983433 correct 49
+Epoch  450  loss  0.5407985190426734 correct 50
+Epoch  460  loss  0.7232722860028326 correct 49
+Epoch  470  loss  1.3785150726776045 correct 48
+Epoch  480  loss  0.568271800498606 correct 49
+Epoch  490  loss  0.9366928134349591 correct 50
+```
