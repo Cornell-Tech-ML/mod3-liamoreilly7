@@ -32,8 +32,8 @@ The files that will be synced are:
         minitorch/tensor_data.py minitorch/tensor_functions.py minitorch/tensor_ops.py minitorch/operators.py minitorch/scalar.py minitorch/scalar_functions.py minitorch/module.py minitorch/autodiff.py minitorch/module.py project/run_manual.py project/run_scalar.py project/run_tensor.py minitorch/operators.py minitorch/module.py minitorch/autodiff.py minitorch/tensor.py minitorch/datasets.py minitorch/testing.py minitorch/optim.py
 
 ## Task 3.1/3.2 Diagnostics Output
-```MAP
- 
+MAP
+``` 
 ================================================================================
  Parallel Accelerator Optimizing:  Function tensor_map.<locals>._map, /Users/lia
 moreilly/Desktop/CornellTech/MLE/mod3-liamoreilly7/minitorch/fast_ops.py (167)  
@@ -339,4 +339,61 @@ part of the larger parallel loop (#13).
 ---------------------------Loop invariant code motion---------------------------
 Allocation hoisting:
 No allocation hoisting found
-None```
+None
+```
+## 3.5 Results
+#### Split
+```!cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND gpu --HIDDEN 100 --DATASET split --RATE 0.05
+```
+Epoch  0  loss  6.089408831846174 correct 31
+Epoch  10  loss  5.112833325097632 correct 39
+Epoch  20  loss  4.6329430210413705 correct 46
+Epoch  30  loss  5.784197596300064 correct 44
+Epoch  40  loss  4.100355632672588 correct 46
+Epoch  50  loss  1.9590212140148309 correct 49
+Epoch  60  loss  2.7952550055178733 correct 49
+Epoch  70  loss  0.860294094091502 correct 50
+Epoch  80  loss  1.3526034281673023 correct 50
+Epoch  90  loss  1.7757800280066438 correct 50
+Epoch  100  loss  0.6926200572562278 correct 50
+Epoch  110  loss  0.8253803416838955 correct 49
+Epoch  120  loss  1.2825825173413028 correct 50
+Epoch  130  loss  0.33040031902946376 correct 49
+Epoch  140  loss  0.8133865726780889 correct 50
+Epoch  150  loss  1.0999600941998011 correct 49
+Epoch  160  loss  0.7722325057990445 correct 50
+Epoch  170  loss  0.4026658838103195 correct 50
+Epoch  180  loss  0.4263914425976528 correct 50
+Epoch  190  loss  0.6499838698413459 correct 50
+Epoch  200  loss  0.3761631322138891 correct 50
+Epoch  210  loss  0.5495441823238267 correct 50
+Epoch  220  loss  0.7147039339668997 correct 50
+Epoch  230  loss  0.20831260945799362 correct 50
+Epoch  240  loss  0.12494165529879593 correct 50
+Epoch  250  loss  0.37390044234246017 correct 50
+Epoch  260  loss  0.11613346591517373 correct 50
+Epoch  270  loss  0.13078957899267676 correct 50
+Epoch  280  loss  0.20601038992521556 correct 50
+Epoch  290  loss  0.27560036048698516 correct 50
+Epoch  300  loss  0.23533515588534243 correct 50
+Epoch  310  loss  0.6444174557298631 correct 50
+Epoch  320  loss  0.20610767456316448 correct 50
+Epoch  330  loss  0.7068046340853331 correct 50
+Epoch  340  loss  0.5801739766186254 correct 50
+Epoch  350  loss  0.07325540725641766 correct 50
+Epoch  360  loss  0.5821250103288926 correct 50
+Epoch  370  loss  0.08139715300035996 correct 50
+Epoch  380  loss  0.40046208944649386 correct 50
+Epoch  390  loss  0.036072822912131736 correct 50
+Epoch  400  loss  0.06195277985197897 correct 50
+Epoch  410  loss  0.06493159883220236 correct 50
+Epoch  420  loss  0.6563974884538111 correct 50
+Epoch  430  loss  0.23011746114093332 correct 50
+Epoch  440  loss  0.014278888021675245 correct 50
+Epoch  450  loss  0.08398166722582799 correct 50
+Epoch  460  loss  0.12712013148487789 correct 50
+Epoch  470  loss  0.21451479617237068 correct 50
+Epoch  480  loss  0.1986953773430774 correct 50
+Epoch  490  loss  0.09918765343962974 correct 50
+
+
