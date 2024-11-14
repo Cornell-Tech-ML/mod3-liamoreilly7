@@ -343,7 +343,8 @@ None
 ```
 ## 3.5 Results
 #### Split
-```!cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND gpu --HIDDEN 100 --DATASET split --RATE 0.05
+```
+!cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND gpu --HIDDEN 100 --DATASET split --RATE 0.05
 ```
 Epoch  0  loss  6.089408831846174 correct 31
 Epoch  10  loss  5.112833325097632 correct 39
