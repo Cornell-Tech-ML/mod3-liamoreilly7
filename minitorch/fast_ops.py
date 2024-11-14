@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     from typing import Callable, Optional
 
     from .tensor import Tensor
-    from .tensor_data import Shape, Storage, Strides, Index
+    from .tensor_data import Shape, Storage, Strides
 
 
 # TIP: Use `NUMBA_DISABLE_JIT=1 pytest tests/ -m task3_1` to run these tests without JIT.
@@ -172,9 +172,11 @@ def tensor_map(
         in_shape: Shape,
         in_strides: Strides,
     ) -> None:
-        # TODO: Implement for Task 3.1.        
+        # TODO: Implement for Task 3.1.
         same_shape = len(out_shape) == len(in_shape) and np.all(out_shape == in_shape)
-        same_strides = len(out_strides) == len(in_strides) and np.all(out_strides == in_strides)
+        same_strides = len(out_strides) == len(in_strides) and np.all(
+            out_strides == in_strides
+        )
 
         # When `out` and `in` are stride-aligned, avoid indexing
         if same_shape and same_strides:
@@ -186,11 +188,12 @@ def tensor_map(
                 in_index = np.empty(MAX_DIMS, dtype=np.int32)
                 to_index(i, out_shape, out_index)
                 broadcast_index(out_index, out_shape, in_shape, in_index)
-                
+
                 in_pos = index_to_position(in_index, in_strides)
                 out_pos = index_to_position(out_index, out_strides)
-                
-                out[out_pos] = fn(in_storage[in_pos])  
+
+                out[out_pos] = fn(in_storage[in_pos])
+
     return njit(_map, parallel=True)
 
 
@@ -228,7 +231,7 @@ def tensor_zip(
         b_shape: Shape,
         b_strides: Strides,
     ) -> None:
-    # TODO: Implement for Task 3.1.  
+        # TODO: Implement for Task 3.1.
         same_shape = (
             len(out_shape) == len(a_shape) == len(b_shape)
             and np.all(out_shape == a_shape)
@@ -289,7 +292,7 @@ def tensor_reduce(
         a_strides: Strides,
         reduce_dim: int,
     ) -> None:
-    # TODO: Implement for Task 3.1.  
+        # TODO: Implement for Task 3.1.
         for i in prange(len(out)):
             out_index = np.empty(MAX_DIMS, np.int32)
             size = a_shape[reduce_dim]
@@ -366,7 +369,7 @@ def _tensor_matrix_multiply(
                     i * out_strides[0] + j * out_strides[1] + k * out_strides[2]
                 )
                 out[out_position] = acc
-    
+
 
 tensor_matrix_multiply = njit(_tensor_matrix_multiply, parallel=True)
 assert tensor_matrix_multiply is not None

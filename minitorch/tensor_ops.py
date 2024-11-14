@@ -207,6 +207,7 @@ class SimpleOps(TensorOps):
 
         """
         f = tensor_reduce(fn)
+
         def ret(a: "Tensor", dim: int) -> "Tensor":
             out_shape = list(a.shape)
             out_shape[dim] = 1
@@ -215,6 +216,7 @@ class SimpleOps(TensorOps):
 
             f(*out.tuple(), *a.tuple(), dim)
             return out
+
         return ret
 
     @staticmethod
@@ -399,5 +401,6 @@ def tensor_reduce(
             out[index_to_position(out_index, out_strides)] = accumulator
 
     return _reduce
+
 
 SimpleBackend = TensorBackend(SimpleOps)
