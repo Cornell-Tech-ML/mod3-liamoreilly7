@@ -299,7 +299,7 @@ def tensor_reduce(
 
             out_pos = index_to_position(out_index, out_strides)
             a_pos = index_to_position(out_index, a_strides)
-            
+
             a = out[out_pos]
             stride = a_strides[reduce_dim]
             for s in range(a_shape[reduce_dim]):
