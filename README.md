@@ -353,7 +353,7 @@ None
 ##### GPU time: 14min -> 1.68s/epoch
 ```
 !cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND gpu --HIDDEN 100 --DATASET simple --RATE 0.05
-``` 
+```
 ```
 Epoch  0  loss  5.683557381196362 correct 33
 Epoch  10  loss  2.0242374696780736 correct 43
@@ -690,7 +690,7 @@ Epoch  490  loss  0.11728529591504278 correct 50
 ```
 
 ### Large Model (simple)
-##### GPU time: 15min -> 1.8s/epoch 
+##### GPU time: 15min -> 1.8s/epoch
 ```
 !cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND gpu --HIDDEN 200 --DATASET simple --RATE 0.05
 ```
