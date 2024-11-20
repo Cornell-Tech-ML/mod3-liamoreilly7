@@ -342,7 +342,22 @@ No allocation hoisting found
 None
 ```
 ## 3.5 Results
-#### Split
+### Simple
+##### GPU time:
+```
+!cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND gpu --HIDDEN 100 --DATASET simple --RATE 0.05
+``` 
+```
+
+```
+##### CPU time: 
+```
+!cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND cpu --HIDDEN 100 --DATASET simple --RATE 0.05
+```
+```
+
+```
+### Split
 ##### GPU time: 2mins -> 0.25s/epoch
 ```
 !cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND gpu --HIDDEN 100 --DATASET split --RATE 0.05
@@ -455,7 +470,7 @@ Epoch  470  loss  1.3785150726776045 correct 48
 Epoch  480  loss  0.568271800498606 correct 49
 Epoch  490  loss  0.9366928134349591 correct 50
 ```
-#### Xor
+### Xor
 ##### GPU time: 15min -> 1.8s/epoch
 ```
 !cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND gpu --HIDDEN 100 --DATASET xor --RATE 0.05
