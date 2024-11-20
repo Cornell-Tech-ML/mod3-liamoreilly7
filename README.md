@@ -342,11 +342,11 @@ No allocation hoisting found
 None
 ```
 ## 3.3/3.4 Test Results (Ran on Colab)
-<img src="https://github.com/Cornell-Tech-ML/mod3-liamoreilly7/task3_3.png" width="50%">
-<img src="https://github.com/Cornell-Tech-ML/mod3-liamoreilly7/task3_4.png" width="50%">
+<img src="https://github.com/Cornell-Tech-ML/mod3-liamoreilly7/blob/master/task3_3.png" width="50%">
+<img src="https://github.com/Cornell-Tech-ML/mod3-liamoreilly7/blob/master/task3_4.png" width="50%">
 
 ### 3.4 Graph
-<img src="https://github.com/Cornell-Tech-ML/mod3-liamoreilly7/3_4graph.png" width="50%">
+<img src="https://github.com/Cornell-Tech-ML/mod3-liamoreilly7/blob/master/3_4graph.png" width="50%">
 
 ## 3.5 Results
 ### Simple
